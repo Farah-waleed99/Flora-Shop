@@ -1,0 +1,325 @@
+﻿@using Master.Models.ViewModels
+@model CategoryProduct
+@inject SignInManager<ApplicationUser> _signInManager
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body class="home">
+
+   
+ 
+        <div class="fullwidth-template">
+        <div class="home-slider-banner">
+            <div class="container">
+                <div class="row10">
+                    <div class="col-lg-8 silider-wrapp">
+                        <div class="home-slider">
+                            <div class="slider-owl owl-slick equal-container nav-center"
+                                 data-slick='{"autoplay":true, "autoplaySpeed":9000, "arrows":false, "dots":true, "infinite":true, "speed":1000, "rows":1}'
+                                 data-responsive='[{"breakpoint":"2000","settings":{"slidesToShow":1}}]'>
+
+                                <div class="slider-item style7">
+                                    <div class="slider-inner equal-element">
+                                        <div class="slider-infor">
+                                            <h5 class="title-small">
+                                                Sale up to 40% off!
+                                            </h5>
+                                            <h3 class="title-big">
+                                                Plants For Health
+                                            </h3>
+
+                                            <a asp-action="Details" asp-controller="Carts" class="button btn-shop-the-look bgroud-style">Shop now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- تعديل لتكون البانرات الثانية والثالثة بجانب الأولى -->
+                    <div class="col-lg-4 banner-wrapp" style="display: flex; gap: 20px;">
+                        <!-- البانر الثاني -->
+                        <div class="banner" style="flex: 1;">
+                            <div class="item-banner style7">
+                                <div class="inner">
+                                    <div class="banner-content">
+                                        <h3 class="title">Hanging <br />Plants</h3>
+                                        <div class="description">
+                                            Adipiscing elit curabitur senectus sem
+                                        </div>
+                                        <a asp-action="Details" asp-controller="Carts" method="post" class="button btn-lets-do-it">Shop now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- البانر الثالث -->
+                        <div class="banner" style="flex: 1;">
+                            <div class="item-banner style8">
+                                <div class="inner">
+                                    <div class="banner-content">
+                                        <h3 class="title">Grow <br /> Orchid</h3>
+                                        <div class="description">
+                                            Cras pulvinar lorem ipsum dolor conse
+                                        </div>
+                                        <span class="price">$40.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+           
+            <div class="banner-wrapp">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="banner">
+                                <div class="item-banner style4">
+                                    <div class="inner">
+                                        <div class="banner-content">
+                                            <h4 class="teamo-subtitle">TOP STAFF PICK</h4>
+                                            <h3 class="title">Shop Cactus</h3>
+                                            <div class="description">
+                                                Proin interdum magna primis id consequat dictum
+                                            </div>
+                                        <a asp-action="Details" asp-controller="Carts" class="button btn-shop-now">Shop now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="banner">
+                                <div class="item-banner style5">
+                                    <div class="inner">
+                                        <div class="banner-content">
+                                            <h3 class="title">Indoor Life</h3>
+                                            <span class="code">
+                                               
+                                                Get 25% Off for all Accessories items!
+                                            </span>
+                                        <a asp-action="Details" asp-controller="Carts" class="button btn-shop-now">Shop now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+                <div class="banner-wrapp rows-space-65">
+                    <div class="container">
+                    <div class="banner">
+                        <div class="item-banner style17">
+                            <div class="inner">
+                                <div class="banner-content">
+                                    <h3 class="title">Living thing grows</h3>
+                                    <div class="description">
+                                        You have no car & Are you <br />ready to grow? come & shop with us!
+                                    </div>
+                                   
+                                    <a asp-action="Details" asp-controller="Carts" class="button btn-shop-now">Shop now</a>
+                                    <a asp-action="Listing" asp-controller="Home" class="button btn-view-collection">View more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+        <!-- Property Type section -->
+        <section class="property__type--section section--padding">
+            <div class="container">
+                <div class="section__heading gap-40 d-flex align-items-center justify-content-between mb-50" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
+                    <div class="section__heading--left">
+                        <h3 class="section__heading--subtitle h5">
+                           
+                            Explore our wide variety of plants, each designed to bring life and beauty to your space
+                        </h3>
+                        <h2 class="section__heading--title">Product By Type</h2>
+                    </div>
+                   
+                </div>
+
+
+                <div class="property__type--inner d-flex" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="150">
+
+
+
+                    @foreach (var item in Model.Categories)
+                    {
+                        <div class="property__type--box" style="text-align: center; margin-bottom: 30px;">
+                            <div class="property__type--icon" style="margin-bottom: 10px;">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="150" height="220">
+                                        <!-- Pot -->
+                                        <g fill="brown">
+                                            <ellipse cx="100" cy="250" rx="60" ry="20" />
+                                            <rect x="40" y="170" width="120" height="80" />
+                                        </g>
+
+                                        <!-- Plant -->
+                                        <g fill="green">
+                                            <!-- Main stem -->
+                                            <path d="M100,170 C95,120 95,100 100,90 C105,100 105,120 100,170" />
+
+                                            <!-- Leaves arranged symmetrically -->
+                                            <path d="M80,130 C70,120 60,115 50,125 C60,130 70,135 80,130" />
+                                            <path d="M120,130 C130,120 140,115 150,125 C140,130 130,135 120,130" />
+                                            <path d="M60,110 C50,90 40,80 30,90 C40,100 50,110 60,110" />
+                                            <path d="M140,110 C150,90 160,80 170,90 C160,100 150,110 140,110" />
+                                        </g>
+
+                                        <!-- Soil -->
+                                        <g fill="saddlebrown">
+                                            <rect x="40" y="230" width="120" height="20" />
+                                        </g>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="property__type--content" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; text-align: center;">
+                                <h3 class="property__type--title" style="font-size: 18px; font-weight: bold; color: #333; margin: 0;">
+                                    <a asp-action="Listing" asp-controller="Home" asp-route-id="@item.CategoryId" style="text-decoration: none; color: inherit; transition: color 0.3s ease;">
+                                        @item.CategoryName
+                                    </a>
+                                </h3>
+                                
+                            </div>
+                        </div>
+
+
+                    }
+                </div>
+
+            </div>
+        </section>
+                <div class="teamo-tabs  default rows-space-40">
+                    <div class="container">
+                    <div class="tab-head">
+                        <ul class="tab-link">
+                            <li class="active">
+                                <a data-toggle="tab" aria-expanded="true" href="#bestseller">Bestseller</a>
+                            </li>
+                           
+                         
+                        </ul>
+                    </div>
+                    <div class="tab-container">
+                        <div id="bestseller" class="tab-panel active">
+                            <div class="teamo-product">
+                                <ul class="row list-products auto-clear equal-container product-grid">
+                                     @foreach (var item in Model.Products)
+{
+                                    <li class="product-item  col-lg-3 col-md-4 col-sm-6 col-xs-6 col-ts-12 style-1">
+                                        <div class="product-inner equal-element">
+                                            <div class="product-top">
+                                                <div class="flash">
+                                                    <span class="onnew">
+                                                        <span class="text">
+                                                            new
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="product-thumb">
+                                                <div class="thumb-inner">
+                                                    <a asp-action="ProductDetails" asp-controller="Home" asp-route-id="@item.ProductId">
+                                                        <img src="@item.Image" style="width: 200px; height: 200px; object-fit: cover; alt="img">
+                                                    </a>
+                                                    <div class="thumb-group">
+                                                       
+                                                        <div class="loop-form-add-to-cart">
+                                                            <!-- تعديل الرابط ليأخذ الـ productId و quantity -->
+                                                            
+                                                            @if (_signInManager.IsSignedIn(User) && User.IsInRole("User"))
+                                                            {
+                                                                <form asp-action="AddToCart" asp-controller="Carts" method="post">
+                                                                    <input type="hidden" name="productId" value="@item.ProductId" />
+                                                                    <input type="hidden" name="quantity" value="1" />  <!-- تغيير الكمية إذا لزم الأمر -->
+                                                                    <button type="submit" class="single_add_to_cart_button button">
+                                                                        Add to cart
+                                                                    </button>
+                                                                </form>
+                                                            }
+                                                            else
+                                                            {
+                                                                <div class="shop-button">
+                                                                    <a asp-action="Login" asp-controller="Account" asp-route-id="@item.ProductId" class="theme-btn">
+                                                                        <i class="fa-solid fa-basket-shopping"></i>cart
+                                                                    </a>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="product-info">
+                                                <h5 class="product-name product_title">
+                                                        <a href="#">@item.Name</a>
+                                                </h5>
+                                                <div class="group-info">
+                                                
+                                                    <div class="price">
+                                                    
+                                                        <ins>
+                                                                $@item.Price
+                                                        </ins>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+}
+                                   
+                                </ul>
+                            </div>
+                        </div>
+                      
+                      
+                    </div>
+                </div>
+            </div>
+            
+            <div class="teamo-iconbox-wrapp default">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12">
+                            <div class="teamo-iconbox default">
+                                <div class="iconbox-inner">
+                                    <div class="icon">
+                                        <span class="flaticon-delivery-truck"></span>
+                                    </div>
+                                    <div class="content">
+                                        <h4 class="title">
+                                            Free Delivery On order over $90.00
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+   
+</body>
+</html>
+  
+  

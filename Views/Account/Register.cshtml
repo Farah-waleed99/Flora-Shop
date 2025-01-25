@@ -1,0 +1,169 @@
+﻿@using Master.Models.ViewModels
+@model RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+        }
+
+        .registration-page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full height to center the form vertically */
+        }
+
+        .register-form-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px; /* Keeping the same padding */
+            width: 100%;
+            max-width: 300px; /* Same max-width */
+        }
+
+            .register-form-container h2 {
+                text-align: center;
+                margin-bottom: 20px;
+                font-size: 24px;
+                color: #333;
+            }
+
+        .form-group {
+            margin-bottom: 20px; /* Adjusted spacing between fields */
+        }
+
+            .form-group label {
+                font-size: 14px;
+                color: #555;
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .form-group input {
+                width: 100%;
+                padding: 10px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                font-size: 16px;
+            }
+
+                .form-group input:focus {
+                    border-color: #007bff;
+                }
+
+            .form-group button {
+                background-color: #d9534f; /* Red color */
+                color: white;
+                border: none;
+                padding: 12px 20px;
+                width: 100%;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+                transition: background-color 0.3s ease; /* Smooth transition */
+            }
+
+                .form-group button:hover {
+                    background-color: #c9302c; /* Darker red for hover effect */
+                }
+
+        .terms-link {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+            .terms-link a {
+                color: #007bff;
+                text-decoration: none;
+            }
+
+                .terms-link a:hover {
+                    text-decoration: underline;
+                }
+
+        .form-group.checkbox {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Align to the left */
+        }
+
+            .form-group.checkbox input[type="checkbox"] {
+                margin-right: 5px; /* Reduce the space between checkbox and label */
+            }
+    </style>
+</head>
+
+<body>
+    <form asp-action="Register" asp-controller="Account" method="post">
+        <!-- First Name -->
+        <div class="form-group">
+            <label for="FirstName">First Name</label>
+            <input type="text" id="FirstName" name="FirstName" placeholder="Enter your first name" asp-for="FirstName" required />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+
+        <!-- Last Name -->
+        <div class="form-group">
+            <label for="LastName">Last Name</label>
+            <input type="text" id="LastName" name="LastName" placeholder="Enter your last name" asp-for="LastName" required />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+            <label for="Email">Your Email</label>
+            <input type="email" id="Email" name="Email" placeholder="Enter your email" asp-for="Email" required />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+            <label for="Password">Password</label>
+            <input type="password" id="Password" name="Password" placeholder="Enter your password" asp-for="Password" required />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group">
+            <label for="ConfirmPassword">Confirm Password</label>
+            <input type="password" id="ConfirmPassword" name="ConfirmPassword" placeholder="Confirm your password" asp-for="ConfirmPassword" required />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+
+        <!-- Terms and Conditions -->
+        <p class="account__form--condition position-relative m-0">
+            <input class="account__form--condition__input" id="condition" type="checkbox">
+            <label class="account__form--condition__label" for="condition">I agree to all Terms & <span>Condition</span> and Feeds</label>
+            <span class="account__form--condition__checkmark"></span>
+        </p>
+        <br />
+
+        <!-- Submit Button -->
+        <div class="form-group">
+            <button type="submit">Register</button>
+        </div>
+
+        <!-- Login Link -->
+        <div class="terms-link">
+            Already have an account? <a asp-action="Login" asp-controller="Account">Login here</a>
+        </div>
+    </form>
+</body>
+
+</html>
