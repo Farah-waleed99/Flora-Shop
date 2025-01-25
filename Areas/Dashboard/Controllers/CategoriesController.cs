@@ -24,7 +24,7 @@ namespace Master.Areas.Dashboard.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.Categories.ToListAsync());
-            return View(await _context.Categories.ToListAsync());
+          
         }
 
         // GET: Dashboard/Categories/Details/5
