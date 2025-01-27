@@ -1,4 +1,5 @@
-﻿using Master.Models;
+﻿using Flora.Models;
+using Master.Models;
 using Master.Models.CommonProp;
 using Master.Models.ViewModels;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -20,7 +21,9 @@ namespace Master.Data
         public DbSet<Cart> Carts { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
-       
+        public DbSet<Contactus> contactus  { get; set; }
+
+
 
 
     }

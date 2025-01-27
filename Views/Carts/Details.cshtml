@@ -38,10 +38,17 @@
                                     <tr>
                                         <td>
                                             <span class="d-flex gap-5 align-items-center">
-                                                <form asp-action="RemoveFromCart" method="post" class="remove-icon">
+                                                <!-- Remove Button -->
+                                                <form asp-action="RemoveFromCart" method="post" style="display: inline;">
                                                     <input type="hidden" name="id" value="@item.CartItemId" />
-                                                    <button type="submit"><img src="/Bookle/main-file/assets/img/icon/icon-9.svg" alt="remove"></button>
+                                                    <button type="submit" style="background: none; border: none; cursor: pointer;">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="black" viewBox="0 0 16 16">
+                                                            <path d="M5.5 5.5v8.5h1v-8.5h-1zm4 0v8.5h1v-8.5h-1zm-7 1v8.5a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-8.5h1v8.5a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2v-8.5h1zm4.646-3.854l-.353.354h5.414l-.353-.354h-4.708zm1.354-.646h3v2h1v-2a1 1 0 0 0-1-1h-3a1 1 0 0 0-1 1v2h1v-2zm-5.354 3v8.5a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-8.5h1v8.5a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2v-8.5h1z" />
+                                                        </svg>
+                                                    </button>
                                                 </form>
+
+                                                <!-- Product Image and Name -->
                                                 <span class="cart">
                                                     <img src="@item.Product.Image" alt="@item.Product.Name" width="52" height="68">
                                                 </span>
@@ -53,20 +60,20 @@
                                         </td>
                                         <td>
                                             <span class="quantity-basket">
-                                                <span class="qty">
+                                                <span class="qty" style="display: flex; align-items: center; gap: 4px;">
                                                     <!-- Decrease Button -->
-                                                    <form asp-action="DecreaseQuantity" asp-controller="Carts">
+                                                    <form asp-action="DecreaseQuantity" asp-controller="Carts" style="display: inline;">
                                                         <input type="hidden" name="id" value="@item.CartItemId" />
-                                                        <button type="submit" class="qtyminus" aria-hidden="true">−</button>
+                                                        <button type="submit" class="qtyminus" style="background: #d4edda; border: 1px solid #c3e6cb; padding: 4px 8px; cursor: pointer; border-radius: 4px; color: #000;">−</button>
                                                     </form>
 
                                                     <!-- Quantity Display -->
-                                                    <input type="number" value="@item.Quantity" min="1" readonly>
+                                                    <input type="number" value="@item.Quantity" min="1" readonly style="width: 40px; text-align: center; border: 1px solid #ccc; border-radius: 4px; padding: 4px;">
 
                                                     <!-- Increase Button -->
-                                                    <form asp-action="IncreaseQuantity" asp-controller="Carts">
+                                                    <form asp-action="IncreaseQuantity" asp-controller="Carts" style="display: inline;">
                                                         <input type="hidden" name="id" value="@item.CartItemId" />
-                                                        <button type="submit" class="qtyplus" aria-hidden="true">+</button>
+                                                        <button type="submit" class="qtyplus" style="background: #d4edda; border: 1px solid #c3e6cb ; padding: 4px 8px; cursor: pointer; border-radius: 4px; color: #000;">+</button>
                                                     </form>
                                                 </span>
                                             </span>
@@ -75,6 +82,7 @@
                                             <span class="subtotal-price">$@(item.Quantity * item.Product.Price)</span>
                                         </td>
                                     </tr>
+
                                 }
                             </tbody>
                         </table>

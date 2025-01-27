@@ -1,0 +1,257 @@
+﻿@model Flora.Models.Contactus
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<!-- Breadcrumb Section Start -->
+<div class="breadcrumb-wrapper">
+    <div class="container">
+        <div class="page-heading">
+            <h1>Contact Us</h1>
+            <div class="page-header">
+                <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".3s">
+                    <li>
+                        <a asp-action="Index" asp-controller="Home">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </li>
+                    <li>
+                        Contact Us
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Images Section Above Content -->
+    <div class="image-section">
+        <div class="image-container">
+            <img src="~/images/item-instagram-3.jpg" alt="img" class="image-item">
+            <img src="~/images/item-instagram-5.jpg" alt="img" class="image-item">
+            <img src="~/images/item-instagram-4.jpg" alt="img" class="image-item">
+        </div>
+    </div>
+</div>
+
+@if (TempData["AlertMessage"] != null)
+{
+    <div class="alert alert-success" role="alert"
+         style="margin: 10px 0; padding: 15px; background-color: #d4edda; border-color: #c3e6cb; color: #155724;">
+        @TempData["AlertMessage"]
+    </div>
+}
+<br />
+
+<!-- Contact Section Start -->
+<section class="contact-section fix">
+    <div class="container">
+        <div class="contact-wrapper">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-4" style="margin-top: -50px;">
+                    <!-- إضافة margin-top هنا -->
+                    <div class="contact-left-items">
+                        <div class="contact-info-area-2">
+                            <div class="contact-info-items mb-4">
+                                <div class="icon">
+                                    &#128222;
+                                </div>
+                                <div class="content">
+                                    <p>Call Us 7/24</p>
+                                    <h3>
+                                        <a href="tel:+962788886992">+962-78888-6992</a>
+                                    </h3>
+                                </div>
+                            </div>
+
+                            <div class="contact-info-items mb-4">
+                                <div class="icon">
+                                    &#9993;
+                                </div>
+                                <div class="content">
+                                    <p>Make a Quote</p>
+                                    <h3>
+                                        <a href="mailto:farahwl825@gmail.com">farahwl825@gmail.com</a>
+                                    </h3>
+                                </div>
+                            </div>
+
+                            <div class="contact-info-items border-none">
+                                <div class="icon">
+                                    &#128205;
+                                </div>
+                                <div class="content">
+                                    <p>Location</p>
+                                    <h3>Amman-Jordan</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="contact-content">
+                        <form asp-action="Create" id="contact-form" method="POST" class="contact-form-items">
+                            <div class="row g-4">
+                                <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
+                                    <div class="form-clt">
+                                        <span asp-for="Name">Your Name</span>
+                                        <input asp-for="Name" type="text" id="name" placeholder="Your Name">
+                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 wow fadeInUp" data-wow-delay=".5s">
+                                    <div class="form-clt">
+                                        <span asp-for="Email">Your Email*</span>
+                                        <input asp-for="Email" type="text" id="email123" placeholder="Your Email">
+                                        <span asp-validation-for="Email" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 wow fadeInUp" data-wow-delay=".7s">
+                                    <div class="form-clt">
+                                        <span asp-for="Message">Write Message*</span>
+                                        <textarea asp-for="Message" id="message" placeholder="Write Message"></textarea>
+                                        <span asp-validation-for="Message" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div asp-validation-summary="All" class="text-danger"></div>
+                                <div class="col-lg-7 wow fadeInUp" data-wow-delay=".9s">
+                                    <button type="submit" class="theme-btn">
+                                        Send Message <i class="fa-solid fa-arrow-right-long"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<br />
+<br />
+
+<!-- Map Section Start -->
+<div class="map-section">
+    <div class="map-items">
+        <div class="googpemap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6678.7619084840835!2d144.9618311901502!3d-37.81450084255415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642b4758afc1d%3A0x3119cc820fdfc62e!2sEnvato!5e0!3m2!1sen!2sbd!4v1641984054261!5m2!1sen!2sbd"
+                    style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</div>
+
+<!-- Additional Styling -->
+<style>
+    .breadcrumb-wrapper {
+        position: relative;
+        padding: 40px 0;
+        background-color: #f7f7f7;
+    }
+
+    .breadcrumb-items {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+        .breadcrumb-items li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+            .breadcrumb-items li a {
+                color: #333;
+                text-decoration: none;
+            }
+
+            .breadcrumb-items li i {
+                color: #aaa;
+            }
+
+    .contact-section {
+        padding: 60px 0;
+        background-color: #fff;
+    }
+
+    .contact-info-items {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+        .contact-info-items .icon {
+            margin-right: 15px;
+            font-size: 28px;
+        }
+
+        .contact-info-items .content p {
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .contact-info-items .content h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+    .contact-form-items .form-clt {
+        margin-bottom: 20px;
+    }
+
+    .contact-form-items input, .contact-form-items textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    .theme-btn {
+        background-color: #28a745;
+        color: #fff;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        .theme-btn:hover {
+            background-color: #218838;
+        }
+
+    .map-section {
+        padding: 40px 0;
+    }
+
+    .googpemap iframe {
+        width: 100%;
+        height: 400px;
+        border: none;
+    }
+
+    /* Styling for the images above the contact section */
+    .image-section {
+        position: relative;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .image-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .image-item {
+        max-width: 48%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    }
+</style>

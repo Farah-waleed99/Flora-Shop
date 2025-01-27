@@ -4,86 +4,44 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" style="color: white; background-color: #28a745; padding: 5px 10px; border-radius: 4px; text-decoration: none;">Create New</a>
 </p>
-<table class="table">
+
+<table class="table" style="width: 100%; border-collapse: collapse; margin: 20px 0;">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Material)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Color)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Size)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Image)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Category)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SellerName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SellerPhone)
-            </th>
-            <th></th>
+            <th style="padding: 12px 15px; text-align: left; border: 1px solid #ddd; background-color: #4CAF50; color: white;">@Html.DisplayNameFor(model => model.Name)</th>
+            <th style="padding: 12px 15px; text-align: left; border: 1px solid #ddd; background-color: #4CAF50; color: white;">@Html.DisplayNameFor(model => model.Price)</th>
+            <th style="padding: 12px 15px; text-align: left; border: 1px solid #ddd; background-color: #4CAF50; color: white;">@Html.DisplayNameFor(model => model.Material)</th>
+            <th style="padding: 12px 15px; text-align: left; border: 1px solid #ddd; background-color: #4CAF50; color: white;">@Html.DisplayNameFor(model => model.Color)</th>
+            <th style="padding: 12px 15px; text-align: left; border: 1px solid #ddd; background-color: #4CAF50; color: white;">@Html.DisplayNameFor(model => model.Size)</th>
+            <th style="padding: 12px 15px; text-align: left; border: 1px solid #ddd; background-color: #4CAF50; color: white;">@Html.DisplayNameFor(model => model.Category)</th>
+            <th style="padding: 12px 15px; text-align: left; border: 1px solid #ddd; background-color: #4CAF50; color: white;">@Html.DisplayNameFor(model => model.SellerName)</th>
+            <th style="padding: 12px 15px; text-align: left; border: 1px solid #ddd; background-color: #4CAF50; color: white;">@Html.DisplayNameFor(model => model.SellerPhone)</th>
+            <th style="padding: 12px 15px; text-align: left; border: 1px solid #ddd; background-color: #4CAF50; color: white;"></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Material)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Color)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Size)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Image)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.CategoryId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SellerName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SellerPhone)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ProductId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr style="background-color: #f2f2f2; border-bottom: 1px solid #ddd;">
+                <td style="padding: 12px 15px; text-align: left; border: 1px solid #ddd;">@Html.DisplayFor(modelItem => item.Name)</td>
+                <td style="padding: 12px 15px; text-align: left; border: 1px solid #ddd;">@Html.DisplayFor(modelItem => item.Price)</td>
+                <td style="padding: 12px 15px; text-align: left; border: 1px solid #ddd;">@Html.DisplayFor(modelItem => item.Material)</td>
+                <td style="padding: 12px 15px; text-align: left; border: 1px solid #ddd;">@Html.DisplayFor(modelItem => item.Color)</td>
+                <td style="padding: 12px 15px; text-align: left; border: 1px solid #ddd;">@Html.DisplayFor(modelItem => item.Size)</td>
+                <td style="padding: 12px 15px; text-align: left; border: 1px solid #ddd;">@Html.DisplayFor(modelItem => item.Category.CategoryId)</td>
+                <td style="padding: 12px 15px; text-align: left; border: 1px solid #ddd;">@Html.DisplayFor(modelItem => item.SellerName)</td>
+                <td style="padding: 12px 15px; text-align: left; border: 1px solid #ddd;">@Html.DisplayFor(modelItem => item.SellerPhone)</td>
+                <td style="padding: 12px 15px; text-align: left; border: 1px solid #ddd;">
+                    <a asp-action="Edit" asp-route-id="@item.ProductId" style="color: white; background-color: #007bff; padding: 5px 10px; border-radius: 4px; text-decoration: none;">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ProductId" style="color: white; background-color: #28a745; padding: 5px 10px; border-radius: 4px; text-decoration: none;">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ProductId" style="color: white; background-color: #dc3545; padding: 5px 10px; border-radius: 4px; text-decoration: none;">Delete</a>
+
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

@@ -10,7 +10,7 @@ using Master.Data;
 using Master.Models.CommonProp;
 using Master.Models;
 
-namespace BookleWebApp.Controllers
+namespace Master.Controllers
 {
     [Authorize(Roles = "User")]
     public class OrdersController : Controller

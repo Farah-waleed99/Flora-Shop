@@ -19,6 +19,7 @@
         <table class="table table-bordered table-striped table-hover" id="myTable">
             <thead class="table-dark">
                 <tr>
+                    <th>@Html.DisplayNameFor(model => model.First().Id)</th>
                     <th>@Html.DisplayNameFor(model => model.First().User.FirstName)</th>
                     <th>@Html.DisplayNameFor(model => model.First().User.LastName)</th>
                     <th>@Html.DisplayNameFor(model => model.First().OrderDate)</th>
@@ -31,6 +32,7 @@
                 @foreach (var item in Model)
                 {
                     <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Id)</td>
                         <td>@Html.DisplayFor(modelItem => item.User.FirstName)</td>
                         <td>@Html.DisplayFor(modelItem => item.User.LastName)</td>
                         <td>@Html.DisplayFor(modelItem => item.OrderDate)</td>

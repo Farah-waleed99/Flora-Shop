@@ -64,8 +64,8 @@
             <div class="offcanvas__inner">
                 <div class="offcanvas__logo">
                     <a class="offcanvas__logo_link" asp-action="Index" asp-controller="Home" asp-area="Dashboard">
-                        <img class="light__logo" src="~/assets/logos/logos.png" alt="Logo-img" width="158" height="36">
-                        <img class="dark__logo" src="~/assets/logos/logos.png" alt="Logo-img" width="158" height="36">
+                        <img class="light__logo" src="~/images/logoflora.png" alt="Logo-img" width="158" height="36">
+                        <img class="dark__logo" src="~/images/logoflora.png" alt="Logo-img" width="158" height="36">
                     </a>
                     <button class="offcanvas__close--btn" data-offcanvas>close</button>
                 </div>
@@ -184,10 +184,10 @@
         <div class="dashboard__sidebar">
             <div class="main__logo logo-desktop-none">
                 <h1 class="main__logo--title">
-                    <a class="main__logo--link" asp-action="Index" asp-controller="Home" asp-area="Dashboard">
-                        <img class="main__logo--img desktop light__logo" src="~/assets/logos/logos.png" alt="logo-img">
-                        <img class="main__logo--img desktop dark__logo" src="~/assets/logos/logos.png" alt="logo-img">
-                        <img class="main__logo--img mobile" src="~/assets/logos/logos.png" alt="logo-img">
+                    <a class="main__logo--link" asp-action="Index" asp-controller="Products" asp-area="Dashboard">
+                        <img class="main__logo--img desktop light__logo" src="~/images/logoflora.png"  alt="logo-img">
+                        <img class="main__logo--img desktop dark__logo" src="~/images/logoflora.png"  alt="logo-img">
+                        <img class="main__logo--img mobile" src="~/images/logoflora.png" alt="Logo-img">
                     </a>
                 </h1>
             </div>
@@ -229,6 +229,16 @@
                                 <path d="M10 13.3334V6.66675" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                             <span class="sidebar__menu--text">Orders</span>
+                        </a>
+                    </li>
+                    <li class="sidebar__menu--items">
+                        <a class="sidebar__menu--link" asp-action="Index" asp-controller="Contactus">
+                            <svg class="sidebar__menu--icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.99996 18.3334C14.5833 18.3334 18.3333 14.5834 18.3333 10.0001C18.3333 5.41675 14.5833 1.66675 9.99996 1.66675C5.41663 1.66675 1.66663 5.41675 1.66663 10.0001C1.66663 14.5834 5.41663 18.3334 9.99996 18.3334Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M6.66663 10H13.3333" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M10 13.3334V6.66675" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <span class="sidebar__menu--text">Contact Us</span>
                         </a>
                     </li>
 
@@ -307,9 +317,9 @@
                         </div>
                         <div class="main__logo logo-desktop-block">
                             <a class="main__logo--link" href="./dashboard.html">
-                                <img class="main__logo--img desktop light__logo" src="~/assets/logos/logos.png" alt="logo-img">
-                                <img class="main__logo--img desktop dark__logo" src="~/assets/logos/logos.png" alt="logo-img">
-                                <img class="main__logo--img mobile" src="~/assets/logos/logos.png" alt="logo-img">
+                                <img class="main__logo--img desktop light__logo" src="~/images/logoflora.png" alt="Logo-img">
+                                <img class="main__logo--img desktop dark__logo" src="~/images/logoflora.png" alt="Logo-img">
+                                <img class="main__logo--img mobile" src="~/images/logoflora.png" alt="Logo-img">
                             </a>
                         </div>
                     </div>
@@ -357,12 +367,13 @@
                             </ul>
                             <div class="header__user--profile">
                                 <a class="header__user--profile__link d-flex align-items-center" href="#">
-                                    <img class="header__user--profile__thumbnail" src="~/assets/img/comment-author3.png" alt="img">
+                                    <img class="header__user--profile__thumbnail" src="~/images/testimonial-author-thumb3.png" alt="img">
                                     <span class="header__user--profile__name">Hi,@User.Identity!.Name</span>
                                     <span class="header__user--profile__arrow">
-                                        <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M5.9994 4.97656L10.1244 0.851563L11.3027 2.0299L5.9994 7.33323L0.696067 2.0299L1.8744 0.851563L5.9994 4.97656Z" fill="currentColor" fill-opacity="0.5" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 14a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm1-9.5a.5.5 0 0 1 .5.5v2.793l2.354 2.354a.5.5 0 0 1-.708.708L9 7.707V5.5a.5.5 0 0 1 .5-.5z" />
                                         </svg>
+
                                     </span>
                                 </a>
                                 <div class="dropdown__user--profile">

@@ -10,7 +10,8 @@ namespace Master.Areas.Dashboard.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+
+            return RedirectToAction("Index", "Orders", new { area = "Dashboard" });
         }
 
     }

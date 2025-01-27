@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<Product>
+@using Master.Models.ViewModels
+@inject SignInManager<ApplicationUser> _signInManager
 @{
     ViewData["Title"] = "Listing";
 }
@@ -64,7 +66,7 @@
                                                     <a asp-action="ProductDetails" asp-controller="Home" asp-route-id="@item.ProductId">
                                                         <img src="@item.Image" alt="featured-img" style="width: 250px; height: 250px; object-fit: cover;">
                                                     </a>
-                                                    <a asp-action="ProductDetails" asp-controller="Home" asp-route-id="@item.ProductId class="button quick-wiew-button">Quick View</a>
+                                                   
                                                 </div>
                                             </div>
                                             <div class="product-info-left">
@@ -99,6 +101,14 @@
                                                         @item.Size
                                                     </li>
                                                     <ul class="product-attributes">
+                                                        <li>
+                                                            Description:
+                                                        </li>
+                                                        <li>
+                                                            @item.Description
+                                                        </li>
+                                                    </ul>
+                                                    <ul class="product-attributes">
                                                     <li>
                                                         Seller Name:
                                                     </li>
@@ -125,19 +135,24 @@
                                                     <i class="icon fa fa-truck" aria-hidden="true"></i>
                                                      Free Delivery
                                                 </div>
-                                                <form class="cart" asp-action="AddToCart" asp-controller="Carts" method="post">
-                                                    <div class="single_variation_wrap">
-                                                        <div class="quantity">
-                                                            <div class="control">
-                                                                <a class="btn-number qtyminus quantity-minus" href="#">-</a>
-                                                                <input type="text" data-step="1" data-min="0" value="@item.ProductId"
-                                                                       title="Qty" class="input-qty qty" size="4">
-                                                                <a href="#" class="btn-number qtyplus quantity-plus">+</a>
-                                                            </div>
-                                                        </div>
-                                                        <button class="single_add_to_cart_button button">Add to cart</button>
+                                                @if (_signInManager.IsSignedIn(User) && User.IsInRole("User"))
+                                                {
+                                                    <form asp-action="AddToCart" asp-controller="Carts" method="post">
+                                                        <input type="hidden" name="productId" value="@item.ProductId" />
+                                                        <input type="hidden" name="quantity" value="1" />  <!-- تغيير الكمية إذا لزم الأمر -->
+                                                        <button type="submit" class="single_add_to_cart_button button">
+                                                            Add to cart
+                                                        </button>
+                                                    </form>
+                                                }
+                                                else
+                                                {
+                                                    <div class="shop-button">
+                                                        <a asp-action="Login" asp-controller="Account" asp-route-id="@item.ProductId" class="theme-btn">
+                                                            <i class="fa-solid fa-basket-shopping"></i>Add To CART
+                                                        </a>
                                                     </div>
-                                                </form>
+                                                }
                                             </div>
                                         </div>
                                     </div>
