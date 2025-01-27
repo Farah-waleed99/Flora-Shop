@@ -24,6 +24,8 @@ namespace Master.Models
         public string SellerName { get; set; }
         public string SellerPhone { get; set; }
 
+        public int Stock { get; set; }
+
 
     }
 }

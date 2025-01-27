@@ -34,10 +34,7 @@ namespace Master.Controllers
 
        
 
-        public IActionResult Checkout()
-        {
-            return View();
-        }
+       
 
         public IActionResult ProductDetails(int? id)
         {

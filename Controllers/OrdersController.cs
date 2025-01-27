@@ -137,11 +137,20 @@ namespace Master.Controllers
             // Create OrderItems based on CartItems
             foreach (var cartItem in cart.CartItems)
             {
-                var book = cartItem.Product;
-               
+                var product= cartItem.Product;
+                if (product.Stock < cartItem.Quantity)
+                {
+                    // If stock is insufficient, handle the error
+                    TempData["ErrorMessage"] = $"Insufficient stock for {product.Name}.";
+                    return RedirectToAction("Details", "Carts");
+                }
 
                 // Reduce stock quantity
-             
+                product.Stock -= cartItem.Quantity;
+
+
+                // Reduce stock quantity
+
 
                 var orderItem = new OrderItem
                 {
